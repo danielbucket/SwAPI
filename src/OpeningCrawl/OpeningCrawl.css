@@ -1,0 +1,35 @@
+.opening-crawl {
+  width: 25%;
+  background: #1b1b1b;
+  background-image: url(../assets/images/stars.jpg);
+  font-size: 30px;
+  text-align: justify;
+  color: #FFFF00;
+  overflow: hidden;
+}
+
+.movie-title {
+  margin: 0;
+  text-align: center;
+}
+
+.release-year {
+  margin: 0;
+  text-align: center;
+}
+
+.crawl-text {
+  width: 90%;
+  margin: 20px auto 0;
+  height: 100%;
+  animation: crawl 15s linear infinite;
+}
+
+@keyframes crawl {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
