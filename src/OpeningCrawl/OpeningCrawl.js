@@ -1,19 +1,23 @@
 import React from 'react';
 import './OpeningCrawl.css'
 
-const OpeningCrawl = ({ opening }) => {
+const OpeningCrawl = ({ filmData }) => {
+
+  if (filmData) {
+    console.log(filmData);
+  }
 
   return (
     <div className="opening-crawl">
       <div className="crawl-text">
         <h1 className="movie-title">
-          A New Hope
+          { filmData.title }
         </h1>
         <h4 className="release-year">
-          (1977)
+          ({ filmData.release_date })
         </h4>
         <p>
-          { opening }
+          { filmData.opening_crawl }
         </p>
       </div>
     </div>

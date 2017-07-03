@@ -7,10 +7,27 @@ const tempCrawl = 'Episode IV, A NEW HOPE It is a period of civil war. Rebel spa
 
 class App extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      filmData: {}
+    }
+  }
+
+  componentWillMount() {
+    let randNum = Math.floor(Math.random() * ((7 - 1) + 1)) + 1
+
+    fetch(`http://swapi.co/api/films/${randNum}/`)
+    .then((resp) => resp.json())
+    .then(data => {
+      this.setState({filmData: data})
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <OpeningCrawl opening={ tempCrawl }/>
+        <OpeningCrawl filmData={ this.state.filmData }/>
         <Main />
       </div>
     );
