@@ -23,7 +23,6 @@ class Main extends Component {
     fetch(`http://swapi.co/api/${e.target.value}/`)
     .then( resp => resp.json())
     .then( data => {
-      console.log(e.target.value);
       this.setState({
         [e.target.value]: data.results
       })
@@ -40,21 +39,8 @@ class Main extends Component {
           <FavoritesViewer favorites={ this.state.favorites }/>
         </header>
         <TypeSelector itemSelect={ this.itemSelect.bind(this) }/>
-
-<<<<<<< HEAD
-        <Route path='/film' component={ () => {
-          //  FilmDisplay(this.state.films)
-          <FilmDisplay  key='film'
-                        displayItems={ this.state.film } />
-                      } }/>
-        {/* <Route path='display/people' component={
-          <PeopleDisplay  key='film'
-                          displayPeople={ this.state.people} />
-                      } /> */}
-=======
         <FilmDisplay  key='film'
-                      displayItems={ this.state.film } />
->>>>>>> mainComp
+                      displayCards={ this.state.films } />
       </div>
     )
   }
