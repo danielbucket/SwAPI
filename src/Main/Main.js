@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import FavoritesViewer from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector from '../TypeSelector/TypeSelector';
 import FilmDisplay from '../FilmDisplay/FilmDisplay';
+import PeopleDisplay from '../PeopleDisplay/PeopleDisplay';
 import './Main.css'
 
 class Main extends Component {
@@ -36,11 +37,16 @@ class Main extends Component {
           <h1>
             Swapi Box
           </h1>
-          <FavoritesViewer favorites={ this.state.favorites }/>
+          <FavoritesViewer
+            favorites={ this.state.favorites }/>
         </header>
-        <TypeSelector itemSelect={ this.itemSelect.bind(this) }/>
-        <FilmDisplay  key='film'
-                      displayCards={ this.state.films } />
+        <TypeSelector
+          itemSelect={ this.itemSelect.bind(this) }/>
+        <FilmDisplay
+          key='film'
+          displayCards={ this.state.films } />
+        <PeopleDisplay
+          peopleData={ this.state.people }/>
       </div>
     )
   }
