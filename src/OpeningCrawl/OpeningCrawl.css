@@ -22,14 +22,14 @@
   width: 90%;
   margin: 20px auto 0;
   height: 100%;
-  animation: crawl 15s linear infinite;
+  /*animation: crawl 15s linear infinite;*/
 }
 
-/*@keyframes crawl {
+@keyframes crawl {
   0% {
     transform: translateY(100%);
   }
   100% {
     transform: translateY(-100%);
   }
-}*/
+}

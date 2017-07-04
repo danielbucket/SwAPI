@@ -1,6 +1,12 @@
 .favorites-viewer-container {
   display: flex;
-  justify-content: space-around;
-  border: 1px solid red;
+  align-items: center;
+  background: hsl(219,62%,51%);
+  padding: 20px;
+  color: #fff;
+}
 
+.fav-count {
+  font-weight: bold;
+  color: gold;
 }

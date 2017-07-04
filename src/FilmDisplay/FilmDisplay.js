@@ -1,11 +1,14 @@
 import React from 'react';
+import './FilmDisplay.css'
 
 const FilmDisplay = ({ displayCards }) => {
 
-  const eachCard = displayCards.map( i => {
-    console.log(i);
+  const sorted = displayCards.sort((filmA, filmB) => filmA.episode_id > filmB.episode_id)
+
+  const eachCard = sorted.map( i => {
+    // console.log(i);
     return (
-      <div className='card-data'>
+      <div key={i.episode_id} className='card-data'>
         <h1>Star Wars: Episode {i.episode_id}</h1>
         <h3> { i.title } </h3>
         <p>Release Date: { i.release_date }</p>
@@ -14,7 +17,7 @@ const FilmDisplay = ({ displayCards }) => {
   })
 
   return (
-    <div className='card'>
+    <div className='card-container'>
       { eachCard }
     </div>
   )
