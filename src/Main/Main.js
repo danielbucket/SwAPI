@@ -41,6 +41,7 @@ class Main extends Component {
         </header>
         <TypeSelector itemSelect={ this.itemSelect.bind(this) }/>
 
+<<<<<<< HEAD
         <Route path='/film' component={ () => {
           //  FilmDisplay(this.state.films)
           <FilmDisplay  key='film'
@@ -50,6 +51,10 @@ class Main extends Component {
           <PeopleDisplay  key='film'
                           displayPeople={ this.state.people} />
                       } /> */}
+=======
+        <FilmDisplay  key='film'
+                      displayItems={ this.state.film } />
+>>>>>>> mainComp
       </div>
     )
   }
