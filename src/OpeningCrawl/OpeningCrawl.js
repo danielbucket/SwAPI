@@ -3,10 +3,6 @@ import './OpeningCrawl.css'
 
 const OpeningCrawl = ({ filmData }) => {
 
-  if (filmData) {
-    console.log(filmData);
-  }
-
   return (
     <div className="opening-crawl">
       <div className="crawl-text">
