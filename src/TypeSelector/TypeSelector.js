@@ -6,14 +6,18 @@ const TypeSelector = ({ itemSelect }) => {
 
   return (
     <div>
+      <Link to='/films'>
       <button value='films'
               id='films'
               onClick={ e => itemSelect(e) }
-              >Films</button>
+              >Films</button></Link>
+
+      {/* <Link> */}
       <button value='people'
               id='peopls'
               onClick={ e => itemSelect(e) }
               >People</button>
+            {/* </Link> */}
       <button value='planets'
               id='planets'
               onClick={ e => itemSelect(e) }

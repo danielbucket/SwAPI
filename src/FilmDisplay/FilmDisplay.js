@@ -1,15 +1,17 @@
 import React from 'react';
 
-const FilmDisplay = ({ displayItems }) => {
-  const eachCard = displayItems.map( i => {
-  console.log(i);
+const FilmDisplay = ({ displayCards }) => {
+  console.log(displayCards);
 
-    return (
-      <div className='card-data'>
-        'tittley winks'
-      </div>
-    )
-  })
+  // const eachCard = displayCards.map( i => {
+    // return (
+    //   <div className='card-data'>
+    //     <h1>Star Wars: Episode {i.episode_id}</h1>
+    //     <h3> { i.title } </h3>
+    //     <p>Release Date: { i.release_date }</p>
+    //   </div>
+    // )
+  // })
 
   return (
     <div className='card'>

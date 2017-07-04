@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 
 import FavoritesViewer from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector from '../TypeSelector/TypeSelector';
@@ -40,21 +40,17 @@ class Main extends Component {
           <FavoritesViewer favorites={ this.state.favorites }/>
         </header>
         <TypeSelector itemSelect={ this.itemSelect.bind(this) }/>
+        <Switch>
+          <Route exact path='/films' render={ () => {
+            <FilmDisplay  key='film'
+                          displayCards={  } />
+                        } }/>
+          {/* <Route path='display/people' component={
+            <PeopleDisplay  key='film'
+                            displayPeople={ this.state.people} />
+                        } /> */}
+        </Switch>
 
-<<<<<<< HEAD
-        <Route path='/film' component={ () => {
-          //  FilmDisplay(this.state.films)
-          <FilmDisplay  key='film'
-                        displayItems={ this.state.film } />
-                      } }/>
-        {/* <Route path='display/people' component={
-          <PeopleDisplay  key='film'
-                          displayPeople={ this.state.people} />
-                      } /> */}
-=======
-        <FilmDisplay  key='film'
-                      displayItems={ this.state.film } />
->>>>>>> mainComp
       </div>
     )
   }
