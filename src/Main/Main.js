@@ -31,7 +31,7 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div className='main'>
         <header className='main-header'>
           <h1>
             Swapi Box
