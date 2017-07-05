@@ -3,6 +3,8 @@ import './App.css';
 import OpeningCrawl from './OpeningCrawl/OpeningCrawl';
 import Main from './Main/Main';
 
+// import { filmStub } from './filmCleaner';
+
 class App extends Component {
 
   constructor() {

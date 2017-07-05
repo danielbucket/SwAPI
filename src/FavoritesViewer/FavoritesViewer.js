@@ -4,10 +4,7 @@ import './FavoritesViewer.css'
 const FavoritesViewer = ({ favorites }) => {
   return (
     <div className='favorites-viewer-container'>
-      <h5>
-        Starred Items
-      </h5>
-      <p>{ favorites }</p>
+      <p>Starred Items: <span className="fav-count">{ favorites }</span></p>
     </div>
   )
 }

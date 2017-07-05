@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+=======
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import React, { Component }                             from 'react'
+>>>>>>> display-people-data
 
-import FavoritesViewer from '../FavoritesViewer/FavoritesViewer';
-import TypeSelector from '../TypeSelector/TypeSelector';
-import FilmDisplay from '../FilmDisplay/FilmDisplay';
+import { displayFilm, displayPeople } from '../helper'
+import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
+import TypeSelector                   from '../TypeSelector/TypeSelector';
 import './Main.css'
+
 
 class Main extends Component {
   constructor(props) {
@@ -23,7 +29,6 @@ class Main extends Component {
     fetch(`http://swapi.co/api/${e.target.value}/`)
     .then( resp => resp.json())
     .then( data => {
-      console.log(e.target.value);
       this.setState({
         [e.target.value]: data.results
       })
@@ -32,25 +37,24 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div className='main'>
         <header className='main-header'>
           <h1>
             Swapi Box
           </h1>
-          <FavoritesViewer favorites={ this.state.favorites }/>
+          <FavoritesViewer
+            favorites={ this.state.favorites }/>
         </header>
-        <TypeSelector itemSelect={ this.itemSelect.bind(this) }/>
-        <Switch>
-          <Route exact path='/films' render={ () => {
-            <FilmDisplay  key='film'
-                          displayCards={  } />
-                        } }/>
-          {/* <Route path='display/people' component={
-            <PeopleDisplay  key='film'
-                            displayPeople={ this.state.people} />
-                        } /> */}
-        </Switch>
-
+        <TypeSelector
+          itemSelect={ this.itemSelect.bind(this) }/>
+        <div>
+          <Switch>
+            <Route exact path='/films' render={
+              () => displayFilm(this.state.films) } />
+            <Route exact path='/people' render={
+              () => displayPeople(this.state.people) } />
+          </Switch>
+        </div>
       </div>
     )
   }
