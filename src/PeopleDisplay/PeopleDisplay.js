@@ -6,9 +6,9 @@ const PeopleDisplay = ({ displayCards }) => {
   console.log(displayCards)
   const peopleCards = displayCards.map( i => {
     return (
-      <div>
-        <h3>name: { i.name }</h3>
-        <p>weight: { i.mass }</p>
+      <div key={i.name} className="people-cards">
+        <h3>Name: { i.name }</h3>
+        <p>Weight: { i.mass }</p>
       </div>
     )
   })
