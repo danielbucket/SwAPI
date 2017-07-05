@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-=======
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import React, { Component }                             from 'react'
->>>>>>> display-people-data
 
 import { displayFilm, displayPeople } from '../helper'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
