@@ -36,12 +36,8 @@ class Main extends Component {
   }
 
   starItem(e) {
-    console.log('ass bad :', e._targetInst)
-    // if (!this.state.favorites.favoritesItems.find(e)){
-    //   this.setState({
-    //     favorites.favoritesItems: Object.assign(this.state.favorites.favoritesItems, e)
-    //   })
-    // }
+    console.log('ass bad :', e.target)
+
 
   }
 

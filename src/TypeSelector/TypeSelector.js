@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './TypeSelector.css';
 
 
 const TypeSelector = ({ itemSelect }) => {
 
   return (
-    <div>
+    <div className='type-selector'>
       <Link to='/films'>
         <button value='films'
                 id='films'
