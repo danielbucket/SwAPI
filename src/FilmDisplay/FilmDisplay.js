@@ -6,7 +6,6 @@ const FilmDisplay = ({ displayCards }) => {
   const sorted = displayCards.sort((filmA, filmB) => filmA.episode_id > filmB.episode_id)
 
   const eachCard = sorted.map( i => {
-    // console.log(i);
     return (
       <div key={i.episode_id} className='card-data'>
         <h1>Star Wars: Episode {i.episode_id}</h1>
