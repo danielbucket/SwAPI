@@ -1,25 +1,22 @@
 import React from 'react'
 import './PeopleDisplay.css'
 
-const PeopleDisplay = ({ peopleData }) => {
+const PeopleDisplay = ({ displayCards }) => {
 
-  // console.log(peopleData);
-
-  const peopleCards = peopleData.map(person => {
-    const homeworld = fetch(person.homeworld)
-    const species = fetch(person.species[0])
-
-
+  console.log(displayCards)
+  const peopleCards = displayCards.map( i => {
     return (
-      <div key={person.name} className="person-card">
-        <h1 className="person-name">{person.name}</h1>
+      <div>
+        <h3>name: { i.name }</h3>
+        <p>weight: { i.mass }</p>
       </div>
     )
   })
 
+
   return (
     <div className="people-display">
-      {peopleCards}
+      { peopleCards }
     </div>
   )
 }
