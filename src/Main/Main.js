@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import React, { Component }                             from 'react'
 
-import FavoritesViewer from '../FavoritesViewer/FavoritesViewer';
-import TypeSelector from '../TypeSelector/TypeSelector';
-import FilmDisplay from '../FilmDisplay/FilmDisplay';
+import { displayFilm, displayPeople } from '../helper'
+import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
+import TypeSelector                   from '../TypeSelector/TypeSelector';
 import './Main.css'
+
 
 class Main extends Component {
   constructor(props) {
@@ -36,11 +37,19 @@ class Main extends Component {
           <h1>
             Swapi Box
           </h1>
-          <FavoritesViewer favorites={ this.state.favorites }/>
+          <FavoritesViewer
+            favorites={ this.state.favorites }/>
         </header>
-        <TypeSelector itemSelect={ this.itemSelect.bind(this) }/>
-        <FilmDisplay  key='film'
-                      displayCards={ this.state.films } />
+        <TypeSelector
+          itemSelect={ this.itemSelect.bind(this) }/>
+        <div>
+          <Switch>
+            <Route exact path='/films' render={
+              () => displayFilm(this.state.films) } />
+            <Route exact path='/people' render={
+              () => displayPeople(this.state.people) } />
+          </Switch>
+        </div>
       </div>
     )
   }
