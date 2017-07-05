@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 import React, { Component }                             from 'react'
 
-import { displayFilm, displayPeople } from '../helper'
+import { displayFilm, displayPeople, displayPlanets, displayVehicles } from '../helper'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
 import './Main.css'
@@ -37,8 +37,6 @@ class Main extends Component {
 
   starItem(e) {
     console.log('ass bad :', e.target)
-
-
   }
 
   render() {
@@ -60,7 +58,13 @@ class Main extends Component {
                       () => displayFilm(this.state.films, this.starItem) } />
             <Route  exact path='/people'
                     render={
-                      () => displayPeople(this.state.people) } />
+                      () => displayPeople(this.state.people, this.starItem) } />
+            <Route  exact path='/planets'
+                    render={
+                      () => displayPlanets(this.state.planets, this.starItem) } />
+            <Route  exact path='/vehicles'
+                    render={
+                      () => displayVehicles(this.state.vehicles, this.starItem) } />
           </Switch>
         </div>
       </div>

@@ -1,0 +1,12 @@
+.people-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.people-cards {
+  border: 2px solid red;
+  width: 280px;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+}
