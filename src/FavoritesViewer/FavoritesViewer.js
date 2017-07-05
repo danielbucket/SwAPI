@@ -1,10 +1,10 @@
 import React from 'react';
 import './FavoritesViewer.css'
 
-const FavoritesViewer = ({ favorites }) => {
+const FavoritesViewer = ({ favoritesCount }) => {
   return (
     <div className='favorites-viewer-container'>
-      <p>Starred Items: <span className="fav-count">{ favorites }</span></p>
+      <p>Starred Items: <span className="fav-count">{ favoritesCount }</span></p>
     </div>
   )
 }
