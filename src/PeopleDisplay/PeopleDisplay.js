@@ -4,11 +4,19 @@ import './PeopleDisplay.css'
 const PeopleDisplay = ({ displayCards }) => {
 
   console.log(displayCards)
+
+
+
   const peopleCards = displayCards.map( i => {
+
+
+
     return (
       <div key={i.name} className="people-cards">
         <h3>Name: { i.name }</h3>
         <p>Weight: { i.mass }</p>
+        <p>Homeworld: {i.homeworld}</p>
+        <p>Population: {i.population}</p>
       </div>
     )
   })

@@ -4,6 +4,7 @@ import React, { Component }                             from 'react'
 import { displayFilm, displayPeople } from '../helper'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
+import { fetchPeople, fetchPlanets, fetchVehicles } from '../fetchHelper'
 import './Main.css'
 
 
@@ -20,14 +21,20 @@ class Main extends Component {
   }
 
   itemSelect(e) {
-    e.persist()
-    fetch(`http://swapi.co/api/${e.target.value}/`)
-    .then( resp => resp.json())
-    .then( data => {
-      this.setState({
-        [e.target.value]: data.results
-      })
-    })
+
+    switch (e.target.value) {
+      case 'people':
+        fetchPeople(e.target.value, this)
+        break;
+      case 'planets':
+        fetchPlanets(e.target.value)
+        break;
+      case 'vehicles':
+        fetchVehicles(e.target.value)
+        break;
+
+    }
+
   }
 
   render() {
