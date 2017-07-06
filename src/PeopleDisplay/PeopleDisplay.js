@@ -3,6 +3,7 @@ import './PeopleDisplay.css'
 
 const PeopleDisplay = ({ displayCards }) => {
 
+
   const peopleCards = displayCards.map( i => {
 
 
@@ -11,9 +12,9 @@ const PeopleDisplay = ({ displayCards }) => {
       <div key={i.name} className="people-cards">
         <h3>Name: { i.name }</h3>
         <p>Weight: { i.mass }</p>
-        <p>Homeworld: {i.homeworld}</p>
-        <p>Population: {i.population}</p>
-        <p>Species: {i.species}</p>
+        <p>Homeworld: {i.homeworld.name}</p>
+        <p>Population: {i.homeworld.population}</p>
+        <p>Species: {i.species.name}</p>
       </div>
     )
   })

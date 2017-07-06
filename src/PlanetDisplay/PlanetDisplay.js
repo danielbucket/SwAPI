@@ -4,8 +4,6 @@ const PlanetDisplay = ({ displayCards }) => {
 
   const planetCards = displayCards.map(i => {
 
-    // console.log(i.residents);
-
     return (
       <div className="planet-card">
         <h1>Name: { i.name }</h1>
