@@ -6,9 +6,9 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
   const peopleCards = displayCards.map( i => {
     return (
       <article  key={i.name}
-                className="people-cards">
+      className="people-cards">
         <span value={ i }
-              onClick={ () => { starItem(i, 'people') } }>💩</span>
+          onClick={ () => { starItem(i, 'people') } }>💩</span>
         <h3>Name: { i.name }</h3>
         <p>Weight: { i.mass }</p>
         <p>Homeworld: { i.homeworld.name }</p>
