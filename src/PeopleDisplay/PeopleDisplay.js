@@ -3,10 +3,6 @@ import './PeopleDisplay.css'
 
 const PeopleDisplay = ({ displayCards }) => {
 
-  console.log(displayCards)
-
-
-
   const peopleCards = displayCards.map( i => {
 
 

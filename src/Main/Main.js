@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import React, { Component }                             from 'react'
 
-import { displayFilm, displayPeople } from '../helper'
+import { displayFilm, displayPeople, displayPlanets, displayVehicles } from '../helper'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
 import { fetchPeople, fetchPlanets, fetchVehicles } from '../fetchHelper'
@@ -12,12 +12,17 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      favorites: props.favorites,
+      favorites: {
+        favoritesCount: props.favoritesCount,
+        favoritesItems: {}
+      },
       films: [],
       people: [],
       planets: [],
       vehicles: []
     }
+    this.itemSelect = this.itemSelect.bind(this)
+    this.starItem = this.starItem.bind(this)
   }
 
   itemSelect(e) {
@@ -37,6 +42,10 @@ class Main extends Component {
 
   }
 
+  starItem(e) {
+    console.log('ass bad :', e.target)
+  }
+
   render() {
     return (
       <div className='main'>
@@ -45,16 +54,24 @@ class Main extends Component {
             Swapi Box
           </h1>
           <FavoritesViewer
-            favorites={ this.state.favorites }/>
+            favoritesCount={ this.state.favorites.favoritesCount }/>
         </header>
         <TypeSelector
-          itemSelect={ this.itemSelect.bind(this) }/>
+          itemSelect={ this.itemSelect }/>
         <div>
           <Switch>
-            <Route exact path='/films' render={
-              () => displayFilm(this.state.films) } />
-            <Route exact path='/people' render={
-              () => displayPeople(this.state.people) } />
+            <Route  exact path='/films'
+              render={
+                () => displayFilm(this.state.films, this.starItem) } />
+            <Route  exact path='/people'
+              render={
+                () => displayPeople(this.state.people, this.starItem) } />
+            <Route  exact path='/planets'
+              render={
+                () => displayPlanets(this.state.planets, this.starItem) } />
+            <Route  exact path='/vehicles'
+              render={
+                () => displayVehicles(this.state.vehicles, this.starItem) } />
           </Switch>
         </div>
       </div>

@@ -11,7 +11,7 @@ class App extends Component {
     super()
     this.state = {
       filmData: {},
-      favorites: 12
+      favoritesCount: 12
     }
   }
 
@@ -23,13 +23,14 @@ class App extends Component {
     .then(data => {
       this.setState({filmData: data})
     })
+    .catch(error => console.log('Danger Will Robinson! :', error))
   }
 
   render() {
     return (
       <div className="App">
         <OpeningCrawl filmData={ this.state.filmData }/>
-        <Main favorites={ this.state.favorites }/>
+        <Main favoritesCount={ this.state.favoritesCount }/>
       </div>
     );
   }
