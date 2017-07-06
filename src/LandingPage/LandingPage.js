@@ -1,6 +1,8 @@
-import React from 'react';
-import FilmDisplay from '../FilmDisplay/FilmDisplay';
-import PeopleDisplay from '../PeopleDisplay/PeopleDisplay';
+import React          from 'react';
+import FilmDisplay    from '../FilmDisplay/FilmDisplay';
+import PeopleDisplay  from '../PeopleDisplay/PeopleDisplay';
+import PlanetDisplay  from '../PlanetDisplay/PlanetDisplay';
+import VehicleDisplay from '../VehicleDisplay/VehicleDisplay';
 
 const LandingPage = ({ favItems, favsCount, starItem }) => {
 
@@ -18,6 +20,18 @@ const LandingPage = ({ favItems, favsCount, starItem }) => {
                         starItem={ starItem } />
       )
     }
+    // if (favItems[i].type === 'planets') {
+    //   return (
+    //     <PlanetDisplay  displayCards={ [favItems[i]] }
+    //                     starItem={ starItem } />
+    //   )
+    // }
+    // if (favItems[i].type === 'vehicles') {
+    //   return (
+    //     <VehicleDisplay displayCards={ [favItems[i]] }
+    //                     starItem={ starItem } />
+    //   )
+    // }
   })
 
   return (

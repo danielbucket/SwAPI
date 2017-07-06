@@ -11,6 +11,9 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
               onClick={ () => { starItem(i, 'people') } }>💩</span>
         <h3>Name: { i.name }</h3>
         <p>Weight: { i.mass }</p>
+        <p>Homeworld: { i.homeworld.name }</p>
+        <p>Population: { i.homeworld.population }</p>
+        <p>Species: { i.species.name }</p>
       </article>
     )
   })
