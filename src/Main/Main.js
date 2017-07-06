@@ -11,9 +11,9 @@ class Main extends Component {
   constructor() {
     super()
     this.state = {
-      favoritesItems: [],
-      //favoritesCount should be the length of the favoritesItems array
-      favoritesCount: 0,
+      favoriteItems: {},
+      //favoriteCount should be the length of the favoriteItems array
+      favoriteCount: 0,
       films: [],
       people: [],
       planets: [],
@@ -35,11 +35,15 @@ class Main extends Component {
     })
   }
 
-  starItem(e) {
-    console.log('ass bad :', e)
+  starItem(e, type) {
+    Object.assign(e, {type: type})
+    const newFavItems = [...this.state.favoriteItems, e]
+
     this.setState({
-      favoritesItems: Object.assign(this.state.favoritesItems, e)
+      favoriteItems: newFavItems,
+      favoriteCount: newFavItems.length
     })
+
   }
 
   render() {
@@ -52,13 +56,13 @@ class Main extends Component {
             </Link>
           </h1>
           <FavoritesViewer
-            favoritesCount={ this.state.favoritesCount }/>
+            favoriteCount={ this.state.favoriteCount }/>
         </header>
         <TypeSelector
           itemSelect={ this.itemSelect }/>
         <div>
         <Route  exact path='/' render={
-          () => displayLandingPage(this.state.favoritesItems, this.state.favoritesCount, this.starItem) } />
+          () => displayLandingPage(this.state.favoriteItems, this.state.favoriteCount, this.starItem) } />
           <Switch>
             <Route  exact path='/films'
                     render={
