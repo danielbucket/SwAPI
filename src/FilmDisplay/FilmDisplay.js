@@ -10,7 +10,7 @@ const FilmDisplay = ({ displayCards, starItem }) => {
       <article  key={ i.episode_id }
             className='card-data'>
             <span value={ i }
-                  onClick={ (e) => { starItem(e) } }>💩</span>
+                  onClick={ () => { starItem(i) } }>💩</span>
         <h1>Star Wars: Episode {i.episode_id}</h1>
         <h3> { i.title } </h3>
         <p>Release Date: { i.release_date }</p>

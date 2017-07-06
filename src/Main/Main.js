@@ -1,20 +1,19 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import React, { Component }                             from 'react'
 
-import { displayFilm, displayPeople, displayPlanets, displayVehicles } from '../helper'
+import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles } from '../helper'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
 import './Main.css'
 
 
 class Main extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      favorites: {
-        favoritesCount: props.favoritesCount,
-        favoritesItems: {}
-      },
+      favoritesItems: [],
+      //favoritesCount should be the length of the favoritesItems array
+      favoritesCount: 0,
       films: [],
       people: [],
       planets: [],
@@ -27,6 +26,7 @@ class Main extends Component {
   itemSelect(e) {
     e.persist()
     fetch(`http://swapi.co/api/${e.target.value}/`)
+    // fetch('../assets/TestingStubs/filmStub')
     .then( resp => resp.json())
     .then( data => {
       this.setState({
@@ -36,7 +36,10 @@ class Main extends Component {
   }
 
   starItem(e) {
-    console.log('ass bad :', e.target)
+    console.log('ass bad :', e)
+    this.setState({
+      favoritesItems: Object.assign(this.state.favoritesItems, e)
+    })
   }
 
   render() {
@@ -44,14 +47,18 @@ class Main extends Component {
       <div className='main'>
         <header className='main-header'>
           <h1>
-            Swapi Box
+            <Link to='/'>
+              Swapi Box
+            </Link>
           </h1>
           <FavoritesViewer
-            favoritesCount={ this.state.favorites.favoritesCount }/>
+            favoritesCount={ this.state.favoritesCount }/>
         </header>
         <TypeSelector
           itemSelect={ this.itemSelect }/>
         <div>
+        <Route  exact path='/' render={
+          () => displayLandingPage(this.state.favoritesItems, this.state.favoritesCount, this.starItem) } />
           <Switch>
             <Route  exact path='/films'
                     render={
