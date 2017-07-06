@@ -95,3 +95,16 @@ export const fetchPlanets = (value, main) => {
 export const fetchVehicles = () => {
   console.log('vehicles');
 }
+
+
+export const fetchFilms = (value, main) => {
+  console.log('films');
+
+  fetch(`http://swapi.co/api/${value}/`)
+ .then( resp => resp.json())
+ .then( data => {
+   main.setState({
+     [value]: data.results
+   })
+ })
+}

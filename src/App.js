@@ -3,15 +3,12 @@ import './App.css';
 import OpeningCrawl from './OpeningCrawl/OpeningCrawl';
 import Main from './Main/Main';
 
-// import { filmStub } from './filmCleaner';
 
 class App extends Component {
-
   constructor() {
     super()
     this.state = {
       filmData: {},
-      favoritesCount: 12
     }
   }
 
@@ -30,9 +27,9 @@ class App extends Component {
     return (
       <div className="App">
         <OpeningCrawl filmData={ this.state.filmData }/>
-        <Main favoritesCount={ this.state.favoritesCount }/>
+        <Main />
       </div>
-    );
+    )
   }
 }
 
