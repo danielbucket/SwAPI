@@ -17,6 +17,7 @@ const PeopleDisplay = ({ displayCards }) => {
         <p>Weight: { i.mass }</p>
         <p>Homeworld: {i.homeworld}</p>
         <p>Population: {i.population}</p>
+        <p>Species: {i.species}</p>
       </div>
     )
   })
