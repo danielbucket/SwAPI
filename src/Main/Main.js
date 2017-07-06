@@ -32,7 +32,7 @@ class Main extends Component {
         fetchPeople(e.target.value, this)
         break;
       case 'planets':
-        fetchPlanets(e.target.value)
+        fetchPlanets(e.target.value, this)
         break;
       case 'vehicles':
         fetchVehicles(e.target.value)
