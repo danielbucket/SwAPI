@@ -7,10 +7,15 @@ const FilmDisplay = ({ displayCards, starItem }) => {
 
   const eachCard = sorted.map( i => {
     return (
-      <article  className='card-data'>
-        <span onClick={
-          () => { starItem(i, 'films') } }>💩</span>
-        <h1>Star Wars: Episode {i.episode_id}</h1>
+
+      <article  key={ i.episode_id }
+      className='film-card'>
+        <div className="card-header">
+          <h1>Star Wars: Episode {i.episode_id}</h1>
+          <span value={ i }
+            onClick={ () => { starItem(i, 'films') }}
+          className="fav-btn">💩</span>
+        </div>
         <h3> { i.title } </h3>
         <p>Release Date: { i.release_date }</p>
       </article>
@@ -18,7 +23,7 @@ const FilmDisplay = ({ displayCards, starItem }) => {
   })
 
   return (
-    <div className='card-container'>
+    <div className='film-display'>
       { eachCard }
     </div>
   )

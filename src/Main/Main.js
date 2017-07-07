@@ -68,7 +68,7 @@ class Main extends Component {
     return (
       <div className='main'>
         <header className='main-header'>
-          <h1>
+          <h1 className="logo">
             <Link to='/'>
               Swapi Box
             </Link>
