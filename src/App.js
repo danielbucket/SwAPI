@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import OpeningCrawl from './OpeningCrawl/OpeningCrawl';
-import Main from './Main/Main';
+import OpeningCrawl         from './OpeningCrawl/OpeningCrawl';
+import Main                 from './Main/Main';
+import                           './App.css';
 
 
 class App extends Component {

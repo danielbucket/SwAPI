@@ -1,11 +1,18 @@
-import { Route, Switch, Link } from 'react-router-dom';
-import React, { Component }                             from 'react'
+import {  Route, Switch, Link }             from 'react-router-dom';
+import    React, { Component }              from 'react';
 
-import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles } from '../Helpers/componentHelpers'
-import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
-import TypeSelector                   from '../TypeSelector/TypeSelector';
-import { fetchPeople, fetchPlanets, fetchVehicles, fetchFilms } from '../fetchHelper'
-import './Main.css'
+import                                           './Main.css';
+import    FavoritesViewer                   from '../FavoritesViewer/FavoritesViewer';
+import    TypeSelector                      from '../TypeSelector/TypeSelector';
+import {  displayLandingPage,
+          displayFilm,
+          displayPeople,
+          displayPlanets,
+          displayVehicles }                 from '../Helpers/componentHelpers';
+import {  fetchPeople,
+          fetchPlanets,
+          fetchVehicles,
+          fetchFilms }                      from '../fetchHelper';
 
 
 class Main extends Component {
@@ -24,23 +31,12 @@ class Main extends Component {
   }
 
   itemSelect(e) {
-
     switch (e.target.value) {
-      case 'people':
-        fetchPeople(e.target.value, this)
-        break;
-      case 'planets':
-        fetchPlanets(e.target.value, this)
-        break;
-      case 'vehicles':
-        fetchVehicles(e.target.value, this)
-        break;
-      case 'films':
-        fetchFilms(e.target.value, this)
-        break;
-
+      case 'people':    fetchPeople(e.target.value, this);    break;
+      case 'planets':   fetchPlanets(e.target.value, this);   break;
+      case 'vehicles':  fetchVehicles(e.target.value, this);  break;
+      case 'films':     fetchFilms(e.target.value, this);     break;
     }
-
   }
 
   starItem(block, type) {
@@ -81,7 +77,6 @@ class Main extends Component {
         <div>
         <Route  exact path='/' render={
           () => displayLandingPage(this.state.favoriteItems, this.state.favoriteCount, this.starItem) } />
-
           <Switch>
             <Route  exact path='/films'
               render={

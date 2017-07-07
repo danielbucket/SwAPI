@@ -35,7 +35,6 @@ export const fetchPeople = (value, main) => {
     })
 }
 
-
 export const fetchPlanets = (value, main) => {
   console.log('planets')
   fetch(`http://swapi.co/api/${value}/`)
