@@ -1,7 +1,7 @@
 import { Route, Switch, Link } from 'react-router-dom';
 import React, { Component }                             from 'react'
 
-import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles, starItem } from '../helper'
+import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles } from '../Helpers/componentHelpers'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
 import { fetchPeople, fetchPlanets, fetchVehicles, fetchFilms } from '../fetchHelper'
@@ -21,7 +21,6 @@ class Main extends Component {
     }
     this.itemSelect = this.itemSelect.bind(this)
     this.starItem = this.starItem.bind(this)
-    // this.starItem = starItem.bind(this)
   }
 
   itemSelect(e) {
