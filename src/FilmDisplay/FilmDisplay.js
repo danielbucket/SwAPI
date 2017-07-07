@@ -7,6 +7,7 @@ const FilmDisplay = ({ displayCards, starItem }) => {
 
   const eachCard = sorted.map( i => {
     return (
+
       <article  key={ i.episode_id }
       className='film-card'>
         <div className="card-header">

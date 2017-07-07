@@ -14,7 +14,6 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
             onClick={ () => { starItem(i, 'people') } }
           className="fav-btn">💩</span>
         </div>
-
         <p><span className="label">Weight: </span>{ i.mass }</p>
         <p><span className="label">Homeworld: </span>{ i.homeworld.name }</p>
         <p><span className="label">Population: </span>{ i.homeworld.population }</p>
@@ -23,11 +22,6 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
     )
   })
 
-
-
-
-
-
   return (
     <div className="people-display">
       { peopleCards }
@@ -35,4 +29,4 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
   )
 }
 
-export default PeopleDisplay
+export default PeopleDisplay;

@@ -16,6 +16,7 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
     }
 
     return (
+
       <div key={i.name} className="planet-card">
         <div className="planet-header">
           <h1>{ i.name }</h1>

@@ -24,6 +24,7 @@ const LandingPage = ({ favItems, favsCount, starItem }) => {
     if (favItems[i].type === 'planets') {
       return (
         <PlanetDisplay  displayCards={ [favItems[i]] }
+
           starItem={ starItem } />
       )
     }
@@ -38,7 +39,7 @@ const LandingPage = ({ favItems, favsCount, starItem }) => {
   return (
     <div>
       <h1>Welcome back, Star Guy!</h1>
-      <p>You have "{ favsCount }" pooped items as your favorites</p>
+      <p>You have pooped "{ favsCount }" items as your favorite poops</p>
       <p>Here they are:</p>
       <div className="favorites-display">{ cards }</div>
     </div>

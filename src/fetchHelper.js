@@ -62,6 +62,7 @@ export const fetchPlanets = (value, main) => {
         planets: data
       })
     })
+
 } // closes fetchPlanets
 
 
@@ -89,8 +90,8 @@ export const fetchFilms = (value, main) => {
   fetch(`http://swapi.co/api/${value}/`)
  .then( resp => resp.json())
  .then( data => {
-   data.results.map(cVal => {
-     Object.assign(cVal, {id: uuidv4()})
+   data.results.map( cVal => {
+     return Object.assign(cVal, {id: uuidv4()})
    })
    main.setState({
      [value]: data.results

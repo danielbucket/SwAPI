@@ -1,7 +1,7 @@
 import { Route, Switch, Link } from 'react-router-dom';
 import React, { Component }                             from 'react'
 
-import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles } from '../helper'
+import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles } from '../Helpers/componentHelpers'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
 import { fetchPeople, fetchPlanets, fetchVehicles, fetchFilms } from '../fetchHelper'
@@ -12,8 +12,7 @@ class Main extends Component {
   constructor() {
     super()
     this.state = {
-      favoriteItems: {},
-      //favoriteCount should be the length of the favoriteItems array
+      favoriteItems: [],
       favoriteCount: 0,
       films: [],
       people: [],
@@ -44,15 +43,25 @@ class Main extends Component {
 
   }
 
-  starItem(e, type) {
-    Object.assign(e, {type: type})
-    const newFavItems = [...this.state.favoriteItems, e]
+  starItem(block, type) {
+    Object.assign(block, {type: type})
+    const newFavItems = [...this.state.favoriteItems, block]
+    const findBlock = this.state.favoriteItems.indexOf(block)
 
-    this.setState({
-      favoriteItems: newFavItems,
-      favoriteCount: newFavItems.length
-    })
+    if (findBlock >= 0) {
+      const newState = newFavItems.filter( cVal => cVal.id !== block.id )
+      this.setState({
+        favoriteItems: newState,
+        favoriteCount: newState.length
+      })
+    }
 
+    if (findBlock === -1) {
+      this.setState({
+        favoriteItems: newFavItems,
+        favoriteCount: newFavItems.length
+      })
+    }
   }
 
   render() {
@@ -72,6 +81,7 @@ class Main extends Component {
         <div>
         <Route  exact path='/' render={
           () => displayLandingPage(this.state.favoriteItems, this.state.favoriteCount, this.starItem) } />
+
           <Switch>
             <Route  exact path='/films'
               render={
