@@ -1,7 +1,7 @@
 import { Route, Switch, Link } from 'react-router-dom';
 import React, { Component }                             from 'react'
 
-import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles } from '../helper'
+import { displayLandingPage, displayFilm, displayPeople, displayPlanets, displayVehicles, starItem } from '../helper'
 import FavoritesViewer                from '../FavoritesViewer/FavoritesViewer';
 import TypeSelector                   from '../TypeSelector/TypeSelector';
 import { fetchPeople, fetchPlanets, fetchVehicles, fetchFilms } from '../fetchHelper'
@@ -21,6 +21,7 @@ class Main extends Component {
     }
     this.itemSelect = this.itemSelect.bind(this)
     this.starItem = this.starItem.bind(this)
+    // this.starItem = starItem.bind(this)
   }
 
   itemSelect(e) {
@@ -44,20 +45,19 @@ class Main extends Component {
   }
 
   starItem(e, type) {
-    // "type" will be assigned a string of either 'film', 'people', 'planets', or 'vehicles'
-    // "e" is the object that has been clicked
     Object.assign(e, {type: type})
     const newFavItems = [...this.state.favoriteItems, e]
+    const blueFace = this.state.favoriteItems.indexOf(e)
 
-    // debugger
-    const newState = newFavItems.filter( cVal => cVal.id !== e.id )
-
-    if( newState.length !== 0) {
+    if (blueFace >= 0) {
+      const newState = newFavItems.filter( cVal => cVal.id !== e.id )
       this.setState({
         favoriteItems: newState,
         favoriteCount: newState.length
       })
-    } else {
+    }
+
+    if (blueFace === -1) {
       this.setState({
         favoriteItems: newFavItems,
         favoriteCount: newFavItems.length
