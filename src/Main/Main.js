@@ -44,27 +44,26 @@ class Main extends Component {
   }
 
   starItem(e, type) {
-
-    const filteredFavs = this.state.favoriteItems.filter( cVal => {
-
-    return cVal.id === e.id
-    // console.log(cVal.id === e.id)
-
-    })
-    console.log(filteredFavs)
-
+    // "type" will be assigned a string of either 'film', 'people', 'planets', or 'vehicles'
+    // "e" is the object that has been clicked
     Object.assign(e, {type: type})
     const newFavItems = [...this.state.favoriteItems, e]
 
-    this.setState({
-      favoriteItems: newFavItems,
-      favoriteCount: newFavItems.length
-    })
+    // debugger
+    const newState = newFavItems.filter( cVal => cVal.id !== e.id )
+
+    if( newState.length !== 0) {
+      this.setState({
+        favoriteItems: newState,
+        favoriteCount: newState.length
+      })
+    } else {
+      this.setState({
+        favoriteItems: newFavItems,
+        favoriteCount: newFavItems.length
+      })
+    }
   }
-
-
-
-
 
   render() {
     return (
