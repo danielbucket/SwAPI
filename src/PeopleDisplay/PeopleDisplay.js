@@ -1,5 +1,5 @@
-import React from 'react'
-import './PeopleDisplay.css'
+import React from 'react';
+import            './PeopleDisplay.css';
 
 const PeopleDisplay = ({ displayCards, starItem }) => {
 

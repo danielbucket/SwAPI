@@ -1,5 +1,5 @@
 import React from 'react';
-import './FavoritesViewer.css'
+import            './FavoritesViewer.css';
 
 const FavoritesViewer = ({ favoriteCount }) => {
   return (
@@ -9,4 +9,4 @@ const FavoritesViewer = ({ favoriteCount }) => {
   )
 }
 
-export default FavoritesViewer
+export default FavoritesViewer;

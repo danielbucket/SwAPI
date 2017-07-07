@@ -1,5 +1,5 @@
-import React from 'react'
-import './PlanetDisplay.css'
+import React from 'react';
+import            './PlanetDisplay.css';
 
 const PlanetDisplay = ({ displayCards, starItem }) => {
 
@@ -11,12 +11,11 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
       )
     })
 
-    if(residentsList.length === 0) {
+    if (residentsList.length === 0) {
       residentsList = <li>Uninhabited</li>
     }
 
     return (
-
       <div key={i.name} className="planet-card">
         <div className="planet-header">
           <h1>{ i.name }</h1>
