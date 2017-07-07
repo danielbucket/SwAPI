@@ -1,3 +1,6 @@
+const uuidv4 = require('uuid/v4')
+
+
 export const fetchPeople = (value, main) => {
   console.log('people');
 
@@ -24,71 +27,49 @@ export const fetchPeople = (value, main) => {
       })
     })
     .then(data => {
+      console.log(data)
+      data.map(cVal => {
+        Object.assign(cVal, {id: uuidv4()})
+      })
       main.setState({
         people: data
       })
     })
-
-
-
-
-
-  // fetch(`http://swapi.co/api/${value}/`)
-  //   .then( resp => resp.json())
-  //   .then(data => {
-  //     data.results.forEach((person, i) => {
-  //       peopleData.push(person)
-  //
-  //       const homeworld = fetch(person.homeworld)
-  //         .then(data => data.json())
-  //         .then(data => {return {name: data.name, population: data.population}})
-  //
-  //       const species = fetch(person.species)
-  //         .then(data => data.json())
-  //         .then(data => data.name)
-  //
-  //       Promise.all([homeworld, species])
-  //         .then(data => {
-  //           peopleData[i] = Object.assign(peopleData[i], {homeworld: data[0].name, population: data[0].population, species: data[1]})
-  //           main.setState({people: peopleData})
-  //         })
-  //
-  //     })
-  //   })
-
+    .catch( (error) => {'Error at fetchPeople: ', error})
 }
 
-
-
-
 export const fetchPlanets = (value, main) => {
-  console.log('planets');
-
-  const planetData = []
-
   fetch(`http://swapi.co/api/${value}/`)
-    .then( resp => resp.json())
-    // .then(data => console.log(data.results))
-    .then(data => {
-      data.results.forEach((planet, i) => {
-        planetData.push(planet)
-        const allResidents = []
-        planet.residents.forEach(resi => {
-          fetch(resi)
-            .then(resp => resp.json())
-            .then(data => {
-              allResidents.push(data.name)
-              console.log(allResidents);
-              planetData[i] = Object.assign(planetData[i], {residents: allResidents})
-              main.setState({planets: planetData});
-            })
+    .then(resp => resp.json())
+    .then(planet => {
+      const unresolvedPromises = planet.results.map(planet => {
+        const subPromises = planet.residents.map(person => {
+          return fetch(person).then( resp => resp.json())
+        })
+        return Promise.all(subPromises)
+      })
+      return Promise.all(unresolvedPromises)
+      .then(data => {
+        return data.map( (personArray, i) => {
+          return personArray.map( (personObject, index) => {
+            Object.assign(planet.results[i].residents, {[index]: personObject.name})
+            return planet
+          })
         })
       })
     })
-
-
+  .then(planet => {
+    planet[0][0].results.map( cVal => {
+      Object.assign(cVal, {id: uuidv4()})
+    })
+    main.setState({
+      planets: planet[0][0].results
+    })
+  })
+  .catch(error => {
+    console.log('Error at fetchPlanets(): ', error);
+  })
 } // closes fetchPlanets
-
 
 
 
@@ -103,6 +84,9 @@ export const fetchFilms = (value, main) => {
   fetch(`http://swapi.co/api/${value}/`)
  .then( resp => resp.json())
  .then( data => {
+   data.results.map( cVal => {
+     return Object.assign(cVal, {id: uuidv4()})
+   })
    main.setState({
      [value]: data.results
    })
