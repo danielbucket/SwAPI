@@ -35,6 +35,7 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
 
   return (
     <div className="planet-display">
+      <h1>PLANETS</h1>
       {planetCards}
     </div>
   )

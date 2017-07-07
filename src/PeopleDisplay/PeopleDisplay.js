@@ -24,6 +24,7 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
 
   return (
     <div className="people-display">
+      <h1>PEOPLE</h1>
       { peopleCards }
     </div>
   )

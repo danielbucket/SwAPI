@@ -65,9 +65,7 @@ class Main extends Component {
       <div className='main'>
         <header className='main-header'>
           <h1 className="logo">
-            <Link to='/'>
-              Swapi Box
-            </Link>
+            Swapi Box
           </h1>
           <FavoritesViewer
             favoriteCount={ this.state.favoriteCount }/>

@@ -24,6 +24,7 @@ const FilmDisplay = ({ displayCards, starItem }) => {
 
   return (
     <div className='film-display'>
+      <h1>FILMS</h1>
       { eachCard }
     </div>
   )

@@ -21,6 +21,7 @@ const VehicleDisplay = ({ displayCards, starItem }) => {
 
   return (
     <div className="vehicle-display">
+      <h1>VEHICLES</h1>
       { vehiclesArr }
     </div>
   )
