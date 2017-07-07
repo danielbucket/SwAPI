@@ -40,6 +40,7 @@ class Main extends Component {
   }
 
   starItem(block, type) {
+    // debugger
     Object.assign(block, {type: type})
     const newFavItems = [...this.state.favoriteItems, block]
     const findBlock = this.state.favoriteItems.indexOf(block)
