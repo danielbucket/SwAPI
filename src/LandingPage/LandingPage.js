@@ -3,6 +3,7 @@ import FilmDisplay    from '../FilmDisplay/FilmDisplay';
 import PeopleDisplay  from '../PeopleDisplay/PeopleDisplay';
 import PlanetDisplay  from '../PlanetDisplay/PlanetDisplay';
 import VehicleDisplay from '../VehicleDisplay/VehicleDisplay';
+import './LandingPage.css';
 
 const LandingPage = ({ favItems, favsCount, starItem }) => {
 
@@ -20,18 +21,18 @@ const LandingPage = ({ favItems, favsCount, starItem }) => {
                         starItem={ starItem } />
       )
     }
-    // if (favItems[i].type === 'planets') {
-    //   return (
-    //     <PlanetDisplay  displayCards={ [favItems[i]] }
-    //                     starItem={ starItem } />
-    //   )
-    // }
-    // if (favItems[i].type === 'vehicles') {
-    //   return (
-    //     <VehicleDisplay displayCards={ [favItems[i]] }
-    //                     starItem={ starItem } />
-    //   )
-    // }
+    if (favItems[i].type === 'planets') {
+      return (
+        <PlanetDisplay  displayCards={ [favItems[i]] }
+          starItem={ starItem } />
+      )
+    }
+    if (favItems[i].type === 'vehicles') {
+      return (
+        <VehicleDisplay displayCards={ [favItems[i]] }
+          starItem={ starItem } />
+      )
+    }
   })
 
   return (
@@ -39,7 +40,7 @@ const LandingPage = ({ favItems, favsCount, starItem }) => {
       <h1>Welcome back, Star Guy!</h1>
       <p>You have "{ favsCount }" pooped items as your favorites</p>
       <p>Here they are:</p>
-      <div>{ cards }</div>
+      <div className="favorites-display">{ cards }</div>
     </div>
   )
 }
