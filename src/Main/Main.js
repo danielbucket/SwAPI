@@ -40,6 +40,7 @@ class Main extends Component {
   }
 
   starItem(block, type) {
+    // debugger
     Object.assign(block, {type: type})
     const newFavItems = [...this.state.favoriteItems, block]
     const findBlock = this.state.favoriteItems.indexOf(block)
@@ -67,8 +68,7 @@ class Main extends Component {
           <h1 className="logo">
             Swapi Box
           </h1>
-          <FavoritesViewer
-            favoriteCount={ this.state.favoriteCount }/>
+          <FavoritesViewer favoriteCount={ this.state.favoriteCount }/>
         </header>
         <TypeSelector
           itemSelect={ this.itemSelect }/>

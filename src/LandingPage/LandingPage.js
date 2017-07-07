@@ -8,7 +8,6 @@ import                     './LandingPage.css';
 const LandingPage = ({ favItems, favsCount, starItem }) => {
   const grouped = favItems.reduce( (newArr, cVal) => {
     switch (cVal.type) {
-
       case 'films':     newArr.films.push(cVal);    break;
       case 'people':    newArr.people.push(cVal);   break;
       case 'planets':   newArr.planets.push(cVal);  break;

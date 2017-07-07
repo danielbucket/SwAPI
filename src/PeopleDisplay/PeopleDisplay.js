@@ -9,10 +9,11 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
       className="people-cards">
         <div className="card-header">
           <h1>{ i.name }</h1>
-          <span
-            value={ i }
-            onClick={ () => { starItem(i, 'people') } }
-          className="fav-btn">💩</span>
+          <span value={ i }
+                onClick={ () => { starItem(i, 'people') } }
+                className="fav-btn"
+                role='img'
+                aria-labelledby='add to favorites'>💩</span>
         </div>
         <p><span className="label">Weight: </span>{ i.mass }</p>
         <p><span className="label">Homeworld: </span>{ i.homeworld.name }</p>
