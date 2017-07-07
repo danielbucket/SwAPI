@@ -1,8 +1,8 @@
-import FilmDisplay    from './FilmDisplay/FilmDisplay';
-import PeopleDisplay  from './PeopleDisplay/PeopleDisplay';
-import PlanetDisplay  from './PlanetDisplay/PlanetDisplay';
-import VehicleDisplay from './VehicleDisplay/VehicleDisplay';
-import LandingPage    from './LandingPage/LandingPage';
+import FilmDisplay    from '../FilmDisplay/FilmDisplay';
+import PeopleDisplay  from '../PeopleDisplay/PeopleDisplay';
+import PlanetDisplay  from '../PlanetDisplay/PlanetDisplay';
+import VehicleDisplay from '../VehicleDisplay/VehicleDisplay';
+import LandingPage    from '../LandingPage/LandingPage';
 import React          from 'react';
 
 export const displayLandingPage = (favs, count, starItem) => {

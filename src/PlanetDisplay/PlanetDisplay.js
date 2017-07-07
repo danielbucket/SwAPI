@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PlanetDisplay = ({ displayCards }) => {
+const PlanetDisplay = ({ displayCards, starItem }) => {
 
   const planetCards = displayCards.map(i => {
 
@@ -15,6 +15,7 @@ const PlanetDisplay = ({ displayCards }) => {
     }
 
     return (
+
       <div key={i.name} className="planet-card">
         <h1>Name: { i.name }</h1>
         <p>Population: { i.population }</p>
