@@ -22,12 +22,12 @@
   width: 90%;
   margin: 20px auto 0;
   height: 100%;
-  /*animation: crawl 15s linear infinite;*/
+  animation: crawl 18s linear infinite;
 }
 
 @keyframes crawl {
   0% {
-    transform: translateY(100%);
+    transform: translateY(105%);
   }
   100% {
     transform: translateY(-100%);

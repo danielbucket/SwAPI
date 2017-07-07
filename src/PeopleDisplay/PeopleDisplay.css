@@ -4,9 +4,36 @@
 }
 
 .people-cards {
-  border: 2px solid red;
-  width: 280px;
-  height: 300px;
-  margin: 10px;
+  background: #dadada;
+  border: 2px solid #020202;
+  width: 23%;
+  margin: 1%;
   padding: 10px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+.people-cards .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #B80F0F;
+}
+
+.people-cards .card-header h1 {
+  margin: 0;
+  color: #B80F0F;
+  font-size: 24px;
+}
+
+.people-cards .label {
+  font-weight: bold;
+}
+
+.fav-btn {
+  cursor: default;
+  font-size: 30px;
+}
+.fav-btn:hover {
+  cursor: pointer;
 }

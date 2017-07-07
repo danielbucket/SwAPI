@@ -1,4 +1,5 @@
 import React from 'react'
+import './PlanetDisplay.css'
 
 const PlanetDisplay = ({ displayCards, starItem }) => {
 
@@ -11,24 +12,30 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
     })
 
     if(residentsList.length === 0) {
-      residentsList = 'Uninhabited'
+      residentsList = <li>Uninhabited</li>
     }
 
     return (
 
       <div key={i.name} className="planet-card">
-        <h1>Name: { i.name }</h1>
-        <p>Population: { i.population }</p>
-        <p>Climate: { i.climate }</p>
-        <p>Terrain: { i.terrain }</p>
-        <p>Residents:</p>
+        <div className="planet-header">
+          <h1>{ i.name }</h1>
+          <span
+            value={ i }
+            onClick={ () => { starItem(i, 'planets') } }
+          className="fav-btn">💩</span>
+        </div>
+        <p><span className="label">Population:</span> { i.population }</p>
+        <p><span className="label">Climate:</span> { i.climate }</p>
+        <p><span className="label">Terrain:</span> { i.terrain }</p>
+        <p><span className="label">Residents:</span></p>
         <ul>{ residentsList }</ul>
       </div>
     )
   })
 
   return (
-    <div>
+    <div className="planet-display">
       {planetCards}
     </div>
   )
