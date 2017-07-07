@@ -27,7 +27,7 @@ export const fetchPeople = (value, main) => {
     })
     .then(data => {
       data.map(cVal => {
-        Object.assign(cVal, {id: uuidv4()})
+        return Object.assign(cVal, {id: uuidv4()})
       })
       main.setState({
         people: data
@@ -55,7 +55,7 @@ export const fetchPlanets = (value, main) => {
     })
     .then(data => {
       data.map(cVal => {
-        Object.assign(cVal, {id: uuidv4()})
+        return Object.assign(cVal, {id: uuidv4()})
       })
       main.setState({
         planets: data
@@ -63,9 +63,6 @@ export const fetchPlanets = (value, main) => {
     })
 
 } // closes fetchPlanets
-
-
-
 
 export const fetchVehicles = (value, main) => {
   console.log('vehicles');
@@ -81,7 +78,6 @@ export const fetchVehicles = (value, main) => {
 
 
 }
-
 
 export const fetchFilms = (value, main) => {
   console.log('films');

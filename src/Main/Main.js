@@ -69,8 +69,7 @@ class Main extends Component {
               Swapi Box
             </Link>
           </h1>
-          <FavoritesViewer
-            favoriteCount={ this.state.favoriteCount }/>
+          <FavoritesViewer favoriteCount={ this.state.favoriteCount }/>
         </header>
         <TypeSelector
           itemSelect={ this.itemSelect }/>
