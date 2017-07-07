@@ -27,7 +27,6 @@ export const fetchPeople = (value, main) => {
       })
     })
     .then(data => {
-      console.log(data)
       data.map(cVal => {
         Object.assign(cVal, {id: uuidv4()})
       })

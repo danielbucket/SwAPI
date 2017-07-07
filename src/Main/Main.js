@@ -45,15 +45,13 @@ class Main extends Component {
 
   starItem(e, type) {
 
-  if (this.state.favoriteItems.length > 0) {
     const filteredFavs = this.state.favoriteItems.filter( cVal => {
-      return cVal.id !== e.id
+
+    return cVal.id === e.id
+    // console.log(cVal.id === e.id)
+
     })
-    this.setState({
-      favoriteItems: filteredFavs,
-      favoriteCount: filteredFavs.length
-    })
-  } else {
+    console.log(filteredFavs)
 
     Object.assign(e, {type: type})
     const newFavItems = [...this.state.favoriteItems, e]
@@ -65,7 +63,8 @@ class Main extends Component {
   }
 
 
-  }
+
+
 
   render() {
     return (
