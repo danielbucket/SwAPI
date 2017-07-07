@@ -1,5 +1,4 @@
-const uuidv4 = require('uuid/v4')
-
+const uuidv4 = require('uuid/v4');
 
 export const fetchPeople = (value, main) => {
   console.log('people');
@@ -34,46 +33,54 @@ export const fetchPeople = (value, main) => {
         people: data
       })
     })
-    .catch( (error) => {'Error at fetchPeople: ', error})
 }
 
+
 export const fetchPlanets = (value, main) => {
+  console.log('planets')
   fetch(`http://swapi.co/api/${value}/`)
     .then(resp => resp.json())
-    .then(planet => {
-      const unresolvedPromises = planet.results.map(planet => {
-        const subPromises = planet.residents.map(person => {
-          return fetch(person).then( resp => resp.json())
+    .then(planets => {
+      const residentsArr = planets.results.map(planet => {
+        const residentsNames = planet.residents.map(resident => {
+          return fetch(resident)
+          .then(data => data.json())
+          .then(data => data.name)
         })
-        return Promise.all(subPromises)
-      })
-      return Promise.all(unresolvedPromises)
-      .then(data => {
-        return data.map( (personArray, i) => {
-          return personArray.map( (personObject, index) => {
-            Object.assign(planet.results[i].residents, {[index]: personObject.name})
-            return planet
+        return Promise.all(residentsNames)
+          .then(data => {
+            return Object.assign(planet, {residents: data})
           })
-        })
+      })
+      return Promise.all(residentsArr)
+    })
+    .then(data => {
+      data.map(cVal => {
+        Object.assign(cVal, {id: uuidv4()})
+      })
+      main.setState({
+        planets: data
       })
     })
-  .then(planet => {
-    planet[0][0].results.map( cVal => {
-      Object.assign(cVal, {id: uuidv4()})
-    })
-    main.setState({
-      planets: planet[0][0].results
-    })
-  })
-  .catch(error => {
-    console.log('Error at fetchPlanets(): ', error);
-  })
+
 } // closes fetchPlanets
 
 
 
-export const fetchVehicles = () => {
+
+export const fetchVehicles = (value, main) => {
   console.log('vehicles');
+
+  fetch(`http://swapi.co/api/${value}/`)
+    .then(resp => resp.json())
+    .then(data => {
+      main.setState({
+        vehicles: data.results
+      })
+    })
+
+
+
 }
 
 
