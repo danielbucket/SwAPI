@@ -44,20 +44,20 @@ class Main extends Component {
 
   }
 
-  starItem(e, type) {
-    Object.assign(e, {type: type})
-    const newFavItems = [...this.state.favoriteItems, e]
-    const blueFace = this.state.favoriteItems.indexOf(e)
+  starItem(block, type) {
+    Object.assign(block, {type: type})
+    const newFavItems = [...this.state.favoriteItems, block]
+    const findBlock = this.state.favoriteItems.indexOf(block)
 
-    if (blueFace >= 0) {
-      const newState = newFavItems.filter( cVal => cVal.id !== e.id )
+    if (findBlock >= 0) {
+      const newState = newFavItems.filter( cVal => cVal.id !== block.id )
       this.setState({
         favoriteItems: newState,
         favoriteCount: newState.length
       })
     }
 
-    if (blueFace === -1) {
+    if (findBlock === -1) {
       this.setState({
         favoriteItems: newFavItems,
         favoriteCount: newFavItems.length
