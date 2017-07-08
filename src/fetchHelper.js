@@ -1,7 +1,6 @@
 const uuidv4 = require('uuid/v4');
 
 export const fetchPeople = (value, main) => {
-  console.log('people')
 
   fetch(`http://swapi.co/api/${value}/`)
   .then(resp => resp.json())
@@ -27,7 +26,7 @@ export const fetchPeople = (value, main) => {
   })
   .then(data => {
     data.map(cVal => {
-      return Object.assign(cVal, {id: uuidv4()})
+      return Object.assign(cVal, {id: uuidv4(), favorite: false})
     })
     main.setState({
       people: data
@@ -36,7 +35,6 @@ export const fetchPeople = (value, main) => {
 } // closes fethPeople
 
 export const fetchPlanets = (value, main) => {
-  console.log('planets')
 
   fetch(`http://swapi.co/api/${value}/`)
   .then(resp => resp.json())
@@ -56,7 +54,7 @@ export const fetchPlanets = (value, main) => {
   })
   .then(data => {
     data.map(cVal => {
-      return Object.assign(cVal, {id: uuidv4()})
+      return Object.assign(cVal, {id: uuidv4(), favorite: false})
     })
     main.setState({
       planets: data
@@ -65,31 +63,29 @@ export const fetchPlanets = (value, main) => {
 } // closes fetchPlanets
 
 export const fetchVehicles = (value, main) => {
-  console.log('vehicles')
 
   fetch(`http://swapi.co/api/${value}/`)
   .then(resp => resp.json())
   .then(data => {
     data.results.map(cVal => {
-      return Object.assign(cVal, {id: uuidv4()})
+      return Object.assign(cVal, {id: uuidv4(), favorite: false})
     })
     main.setState({
       vehicles: data.results
     })
   })
-} // closes fetchPlanets
+} // closes fetchVehicles
 
 export const fetchFilms = (value, main) => {
-  console.log('films')
 
   fetch(`http://swapi.co/api/${value}/`)
   .then( resp => resp.json())
   .then( data => {
      data.results.map( cVal => {
-       return Object.assign(cVal, {id: uuidv4()})
+       return Object.assign(cVal, {id: uuidv4(), favorite: false})
      })
      main.setState({
        [value]: data.results
      })
   })
-} // closes fetchVehicles
+} // closes fetchFilms

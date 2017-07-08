@@ -1,4 +1,4 @@
-import {  Route, Switch, Link }             from 'react-router-dom';
+import {  Route, Switch }             from 'react-router-dom';
 import    React, { Component }              from 'react';
 
 import                                           './Main.css';
@@ -32,16 +32,28 @@ class Main extends Component {
 
   itemSelect(e) {
     switch (e.target.value) {
-      case 'people':    fetchPeople(e.target.value, this);    break;
-      case 'planets':   fetchPlanets(e.target.value, this);   break;
-      case 'vehicles':  fetchVehicles(e.target.value, this);  break;
-      case 'films':     fetchFilms(e.target.value, this);     break;
+      case 'people':
+        if (this.state.people.length > 0) break;
+        fetchPeople(e.target.value, this);
+        break;
+      case 'planets':
+        if (this.state.planets.length > 0) break;
+        fetchPlanets(e.target.value, this);
+        break;
+      case 'vehicles':
+        if (this.state.vehicles.length > 0) break;
+        fetchVehicles(e.target.value, this);
+        break;
+      case 'films':
+        if (this.state.films.length > 0) break;
+        fetchFilms(e.target.value, this);
+        break;
+      default:
     }
   }
 
   starItem(block, type) {
-    // debugger
-    Object.assign(block, {type: type})
+    Object.assign(block, {type: type, favorite: !block.favorite})
     const newFavItems = [...this.state.favoriteItems, block]
     const findBlock = this.state.favoriteItems.indexOf(block)
 
