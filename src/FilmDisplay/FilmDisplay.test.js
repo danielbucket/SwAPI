@@ -53,7 +53,7 @@ describe('FilmDisplay', () => {
   })
 
   xit('02: each card should have a clickable favorite button', () => {
-    const favButton = wrapper.find('.fav-btn').first() 
+    const favButton = wrapper.find('.fav-btn').first()
 
     favButton.simulate('click')
     expect(mockFunc).toHaveBeenCalledTimes(1)
