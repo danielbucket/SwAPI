@@ -4,16 +4,19 @@ import            './PeopleDisplay.css';
 const PeopleDisplay = ({ displayCards, starItem }) => {
 
   const peopleCards = displayCards.map( i => {
+
+    let favIcon = i.favorite ? '💩' : '🎃'
+
     return (
       <article  key={i.name}
       className="people-cards">
         <div className="card-header">
           <h1>{ i.name }</h1>
           <span value={ i }
-                onClick={ () => { starItem(i, 'people') } }
-                className="fav-btn"
-                role='img'
-                aria-labelledby='add to favorites'>💩</span>
+            onClick={ () => { starItem(i, 'people') } }
+            className="fav-btn"
+            role='img'
+          aria-labelledby='add to favorites'>{favIcon}</span>
         </div>
         <p><span className="label">Weight: </span>{ i.mass }</p>
         <p><span className="label">Homeworld: </span>{ i.homeworld.name }</p>
@@ -24,8 +27,11 @@ const PeopleDisplay = ({ displayCards, starItem }) => {
   })
 
   return (
-    <div className="people-display">
-      { peopleCards }
+    <div className="people-component">
+      <h1>PEOPLE</h1>
+      <div className="people-display">
+        { peopleCards }
+      </div>
     </div>
   )
 }

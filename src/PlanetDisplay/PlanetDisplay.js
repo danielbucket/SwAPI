@@ -4,6 +4,8 @@ import            './PlanetDisplay.css';
 const PlanetDisplay = ({ displayCards, starItem }) => {
   const planetCards = displayCards.map(i => {
 
+    let favIcon = i.favorite ? '💩' : '🎃'
+
     let residentsList = i.residents.map((resi, index) => {
       return (
         <li key={resi}>{resi}</li>
@@ -19,10 +21,10 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
         <div className="planet-header">
           <h1>{ i.name }</h1>
           <span value={ i }
-                onClick={ () => { starItem(i, 'planets') } }
-                className="fav-btn"
-                role='img'
-                aria-labelledby='add to favorites'>💩</span>
+            onClick={ () => { starItem(i, 'planets') } }
+            className="fav-btn"
+            role='img'
+          aria-labelledby='add to favorites'>{favIcon}</span>
         </div>
         <p><span className="label">Population:</span> { i.population }</p>
         <p><span className="label">Climate:</span> { i.climate }</p>
@@ -34,8 +36,11 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
   })
 
   return (
-    <div className="planet-display">
-      { planetCards }
+    <div className="planet-component">
+      <h1>PLANETS</h1>
+      <div className="planet-display">
+        {planetCards}
+      </div>
     </div>
   )
 }

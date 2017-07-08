@@ -1,3 +1,7 @@
+.film-component {
+  padding: 0 20px;
+}
+
 .film-display {
   display: flex;
   flex-wrap: wrap;

@@ -1,3 +1,7 @@
+.vehicle-component {
+  padding: 0 20px;
+}
+
 .vehicle-display {
   display: flex;
   flex-wrap: wrap;
