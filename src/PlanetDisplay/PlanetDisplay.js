@@ -8,7 +8,7 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
 
     let residentsList = i.residents.map((resi, index) => {
       return (
-        <li key={resi}>{resi}</li>
+        <li key={ resi }>{ resi }</li>
       )
     })
 
@@ -17,14 +17,14 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
     }
 
     return (
-      <div key={i.name} className="planet-card">
+      <div key={ i.name } className="planet-card">
         <div className="planet-header">
-          <h1>{ i.name }</h1>
+          <h1 className='planet-name'>{ i.name }</h1>
           <span value={ i }
             onClick={ () => { starItem(i, 'planets') } }
             className="fav-btn"
             role='img'
-          aria-labelledby='add to favorites'>{favIcon}</span>
+          aria-labelledby='add to favorites'>{ favIcon }</span>
         </div>
         <p><span className="label">Population:</span> { i.population }</p>
         <p><span className="label">Climate:</span> { i.climate }</p>
