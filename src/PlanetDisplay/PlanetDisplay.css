@@ -1,3 +1,7 @@
+.planet-component {
+  padding: 0 20px;
+}
+
 .planet-display {
   display: flex;
   flex-wrap: wrap;

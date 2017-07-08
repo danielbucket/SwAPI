@@ -12,6 +12,7 @@ const LandingPage = ({ favItems, favsCount, starItem }) => {
       case 'people':    newArr.people.push(cVal);   break;
       case 'planets':   newArr.planets.push(cVal);  break;
       case 'vehicles':  newArr.vehicles.push(cVal); break;
+      default:
     }
     return newArr
   }, {films:[], people:[], planets:[], vehicles:[]})
