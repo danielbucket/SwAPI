@@ -39,7 +39,7 @@ const PlanetDisplay = ({ displayCards, starItem }) => {
     <div className="planet-component">
       <h1>PLANETS</h1>
       <div className="planet-display">
-        {planetCards}
+        { planetCards }
       </div>
     </div>
   )

@@ -45,14 +45,16 @@ describe('FilmDisplay', () => {
   const mockFunc = jest.fn()
   const wrapper = mount(<FilmDisplay displayCards={ filmStub } starItem={ mockFunc }/>)
 
-  xit('01: should render the first object in the props array', () => {
+  it('01: should render the first object in the props array', () => {
 
     expect(wrapper.find('.film-display').props().children[0].key).toEqual('1')
+    expect(wrapper.find('span').first().props().className).toBe('episode-number')
     expect(wrapper.find('.film-display').props().children[0].props.children[1].props.children[1]).toEqual('The Phantom Menace')
-    expect(wrapper.find('span').first().props().children).toEqual('🎃')
+    expect(wrapper.find('.film-display').props().children[0].props.children[0].props.children[1].props.children).toEqual('🎃')
+
   })
 
-  xit('02: each card should have a clickable favorite button', () => {
+  it('02: each card should have a clickable favorite button', () => {
     const favButton = wrapper.find('.fav-btn').first()
 
     favButton.simulate('click')
@@ -61,11 +63,11 @@ describe('FilmDisplay', () => {
     expect(mockFunc).toHaveBeenCalledTimes(2)
   })
 
-  xit('03: should render a second card', () => {
+  it('03: should render a second card', () => {
+
     expect(wrapper.find('.film-display').props().children[1].key).toEqual('2')
     expect(wrapper.find('.film-display').props().children[1].props.children[1].props.children[1]).toEqual('Harsh Realities')
-    expect(wrapper.find('span')[1].props().children).toEqual('🎃')
-
+    expect(wrapper.find('.film-display').props().children[1].props.children[0].props.children[1].props.children).toEqual('🎃')
   })
 
   it('04: should render two cards if two objects of data are passed in as props', () => {
