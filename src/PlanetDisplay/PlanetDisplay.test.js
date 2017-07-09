@@ -37,15 +37,36 @@ describe('PlanetDisplay', () => {
     "url": "http://swapi.co/api/planets/3/",
     "id": "b363d20c-634c-459f-b05e-21e64d2080a6",
     "favorite": false }]
+
   const mockFn = jest.fn()
   const wrapper = mount(<PlanetDisplay displayCards={ planetStub } starItem={ mockFn }/>)
 
 
-  it('01: should', () => {
-     expect(wrapper.find('.planet-display').props().children[0].key).toEqual('Alderaan')
+  it('01: should render multiple cards', () => {
+
+    expect(wrapper.find('.planet-card').length).toEqual(2)
+  })
 
 
-     console.log(wrapper.find('.planet-name').first().props() )
-    //  expect(wrapper.find('.planet-display').props().children[0].props.children[1].props.children[1]).toEqual(' ')
+  it('02: should have specific data types', () => {
+    const planetDataTypes = wrapper.find('.planet-display').props().children[0].props.children
+
+    expect(wrapper.find('.planet-display').props().children[0].key).toEqual('Alderaan')
+    expect(planetDataTypes[1].props.children[0].props.children).toEqual('Population:')
+    expect(planetDataTypes[2].props.children[0].props.children).toEqual('Climate:')
+    expect(planetDataTypes[3].props.children[0].props.children).toEqual('Terrain:')
+  })
+
+  it('03: should have a button', () => {
+    const button = wrapper.find('.fav-btn').first()
+
+    button.simulate('click')
+    expect(mockFn).toHaveBeenCalledTimes(1)
+    button.simulate('click')
+    expect(mockFn).toHaveBeenCalledTimes(2)
+  })
+
+  it('03: should', () => {
+    
   })
 })
