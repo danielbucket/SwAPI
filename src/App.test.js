@@ -13,15 +13,40 @@ describe('App', () => {
       setTimeout(() => {
         resolve()
       }, 2000)
-    });
+    })
   }
 
-  afterEach(() => {
+  afterEach( () => {
+    console.log(fetchMock.calls())
     expect(fetchMock.calls().unmatched).toEqual([])
     fetchMock.restore()
   })
 
-  it('renders without crashing', () => {
+  it('should display an error when it doesnt get the stuff', async () => {
+
+  fetchMock.get('https://swapi.co/api/films', {
+    status: 500,
+    body: 'filmMock',
+  })
+  .catch(e => console.log(e) )
+
+
+
+
+
+
+  const wrapper = mount(
+    <MemoryRouter >
+      <App />
+    </MemoryRouter >
+  )
+  await resolveAfter2Seconds()
+
+  expect(fetchMock.called()).toEqual(true)
+  // expect(wrapper.state().films.allFilms.length).toEqual(2)
+})
+
+  xit('renders without crashing', () => {
     const wrapper = mount(
       <MemoryRouter >
         <App />
@@ -29,6 +54,6 @@ describe('App', () => {
     )
 
   // expect(wrapper.find('.app').length)
-    // console.log(wrapper.find('.App') )
+    console.log(wrapper.find('.App') )
   })
 })

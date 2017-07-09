@@ -34,11 +34,11 @@ class Main extends Component {
     switch (e.target.value) {
       case 'people':
         if (this.state.people.length > 0) break;
-        fetchPeople(e.target.value, this);
+        fetchPeople(e.target.value, this)
         break;
       case 'planets':
         if (this.state.planets.length > 0) break;
-        fetchPlanets(e.target.value, this);
+        fetchPlanets(e.target.value, this)
         break;
       case 'vehicles':
         if (this.state.vehicles.length > 0) break;
@@ -46,7 +46,7 @@ class Main extends Component {
         break;
       case 'films':
         if (this.state.films.length > 0) break;
-        fetchFilms(e.target.value, this);
+        fetchFilms(e.target.value, this)
         break;
       default:
     }
