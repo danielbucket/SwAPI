@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import OpeningCrawl         from './OpeningCrawl/OpeningCrawl';
 import Main                 from './Main/Main';
 import                           './App.css';
-import { Switch } from 'react-router-dom';
 
 
 class App extends Component {
@@ -34,6 +36,11 @@ class App extends Component {
       </div>
     )
   }
+
+}
+
+App.propTypes = {
+  filmData: PropTypes.object
 }
 
 export default App;

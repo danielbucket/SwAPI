@@ -14,7 +14,7 @@ const TypeSelector = ({ itemSelect }) => {
       </Link>
       <Link to='/people'>
         <button value='people'
-          id='peopls'
+          id='people'
           onClick={ e => itemSelect(e) }>
         People</button>
       </Link>

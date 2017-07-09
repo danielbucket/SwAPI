@@ -1,5 +1,6 @@
-import {  Route, Switch }             from 'react-router-dom';
+import {  Route, Switch }                   from 'react-router-dom';
 import    React, { Component }              from 'react';
+import    PropTypes                         from 'prop-types';
 
 import                                           './Main.css';
 import    FavoritesViewer                   from '../FavoritesViewer/FavoritesViewer';
@@ -34,11 +35,11 @@ class Main extends Component {
     switch (e.target.value) {
       case 'people':
         if (this.state.people.length > 0) break;
-        fetchPeople(e.target.value, this);
+        fetchPeople(e.target.value, this)
         break;
       case 'planets':
         if (this.state.planets.length > 0) break;
-        fetchPlanets(e.target.value, this);
+        fetchPlanets(e.target.value, this)
         break;
       case 'vehicles':
         if (this.state.vehicles.length > 0) break;
@@ -46,7 +47,7 @@ class Main extends Component {
         break;
       case 'films':
         if (this.state.films.length > 0) break;
-        fetchFilms(e.target.value, this);
+        fetchFilms(e.target.value, this)
         break;
       default:
     }
@@ -105,6 +106,15 @@ class Main extends Component {
       </div>
     )
   }
+}
+
+Main.propTypes = {
+  favoriteItems: PropTypes.array,
+  favoriteCount: PropTypes.number,
+  films: PropTypes.array,
+  people: PropTypes.array,
+  planets: PropTypes.array,
+  vehicles: PropTypes.array
 }
 
 export default Main;
