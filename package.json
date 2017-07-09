@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "jest": "^20.0.4",
     "jest-changed-files": "^20.0.3",
     "jest-cli": "^20.0.4",
     "jest-message-util": "^20.0.3",
