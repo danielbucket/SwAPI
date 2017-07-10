@@ -21,7 +21,7 @@ describe('App', () => {
     fetchMock.restore()
   })
 
-  it('should display an error when it doesnt get the stuff', async () => {
+  xit('should display an error when it doesnt get the stuff', async () => {
 
   fetchMock.get('https://swapi.co/api/films', {
     status: 500,

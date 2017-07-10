@@ -1,5 +1,6 @@
-import {  Route, Switch }             from 'react-router-dom';
+import {  Route, Switch }                   from 'react-router-dom';
 import    React, { Component }              from 'react';
+import    PropTypes                         from 'prop-types';
 
 import                                           './Main.css';
 import    FavoritesViewer                   from '../FavoritesViewer/FavoritesViewer';
@@ -105,6 +106,15 @@ class Main extends Component {
       </div>
     )
   }
+}
+
+Main.propTypes = {
+  favoriteItems: PropTypes.array,
+  favoriteCount: PropTypes.number,
+  films: PropTypes.array,
+  people: PropTypes.array,
+  planets: PropTypes.array,
+  vehicles: PropTypes.array
 }
 
 export default Main;
