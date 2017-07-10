@@ -248,7 +248,6 @@ describe('VehicleDisplay component', function () {
 
   it('should render the vehicles name in the card', () => {
     const vehicleName = wrapper.find('.vehicle-name').first()
-    console.log(vehicleName.props().children);
     expect(vehicleName.props().children).toEqual('Sand Crawler')
   });
 

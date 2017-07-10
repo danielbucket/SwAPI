@@ -1,4 +1,4 @@
-export const starItem = (block, type) {
+export const starItem = (block, type) => {
   Object.assign(block, {type: type})
   const newFavItems = [...this.state.favoriteItems, block]
   const findBlock = this.state.favoriteItems.indexOf(block)
