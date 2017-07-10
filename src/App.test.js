@@ -17,7 +17,6 @@ describe('App', () => {
   }
 
   afterEach( () => {
-    console.log(fetchMock.calls())
     expect(fetchMock.calls().unmatched).toEqual([])
     fetchMock.restore()
   })
@@ -31,10 +30,6 @@ describe('App', () => {
   .catch(e => console.log(e) )
 
 
-
-
-
-
   const wrapper = mount(
     <MemoryRouter >
       <App />
@@ -43,7 +38,6 @@ describe('App', () => {
   await resolveAfter2Seconds()
 
   expect(fetchMock.called()).toEqual(true)
-  // expect(wrapper.state().films.allFilms.length).toEqual(2)
 })
 
   xit('renders without crashing', () => {

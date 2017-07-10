@@ -6,6 +6,7 @@ import                  './TypeSelector.css';
 const TypeSelector = ({ itemSelect }) => {
   return (
     <div className="type-selector">
+      
       <Link to='/films'>
         <button value='films'
           id='films'
@@ -30,6 +31,7 @@ const TypeSelector = ({ itemSelect }) => {
           onClick={ e => itemSelect(e) }>
           Vehicles</button>
       </Link>
+
     </div>
   )
 }

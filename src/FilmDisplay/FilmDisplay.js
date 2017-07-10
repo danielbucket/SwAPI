@@ -9,15 +9,20 @@ const FilmDisplay = ({ displayCards, starItem }) => {
     return (
       <article  key={ i.episode_id }
                 className='film-card'>
-        <div className="card-header">
-          <h1>Star Wars: Episode <span className='episode-number'>{ i.episode_id }</span></h1>
+        <header className="card-header">
+          <h1 className='episode-preface'>
+            Star Wars: Episode
+            <span className='episode-number'>
+              { i.episode_id }
+            </span>
+          </h1>
           <span value={ i }
               // value does not need to exist
                 onClick={ () => { starItem(i, 'films') } }
                 className="fav-btn"
                 role='img'
                 aria-labelledby='add to favorites'>{ favIcon }</span>
-        </div>
+        </header>
         <h3> { i.title } </h3>
         <p>Release Date: { i.release_date }</p>
       </article>
