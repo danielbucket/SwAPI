@@ -76,16 +76,13 @@ describe('displayPlanets', () => {
 describe('displayVehicles', () => {
   const vehicleState = planetStub
   const mockFunc = jest.fn()
-  const newDisplayVehicles = displayVehicles
+  const newDisplayVehicles = displayVehicles(vehicleState, mockFunc)
 
   it('should render <VehicleDisplay />', () => {
-    const wrapper = newDisplayVehicles(vehicleState, mockFunc)
+    const wrapper = mount(newDisplayVehicles)
 
-    expect(wrapper.props.displayCards).toEqual(vehicleState)
-    expect(wrapper.props.starItem).toEqual(mockFunc)
-    // expect(wrapper.children().root.component.state.mount).toEqual(true)
-
-    // for some reason, displayVehicle is acting differently
-      // it might have to do with the stub Im passing in.
+    expect(wrapper.props().displayCards).toEqual(vehicleState)
+    expect(wrapper.props().starItem).toEqual(mockFunc)
+    expect(wrapper.children().root.component.state.mount).toEqual(true)
   })
 })
