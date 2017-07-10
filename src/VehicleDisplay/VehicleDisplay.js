@@ -2,11 +2,11 @@ import React from 'react';
 import            './VehicleDisplay.css';
 
 const VehicleDisplay = ({ displayCards, starItem }) => {
-
+  
   const vehiclesArr = displayCards.map(i => {
 
     let favIcon = i.favorite ? '💩' : '🎃'
-    
+
     return (
       <div key={ i.name } className="vehicle-card">
         <div className="card-header">
